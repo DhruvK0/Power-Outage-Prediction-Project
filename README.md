@@ -28,6 +28,8 @@ One important point to note is that since we would not have information on the f
 
 The data that we will be using will be sourced from Purdue University’s LASCI Research Data. This is the same data used in our Project 3 which can be found here [here](https://dhruvk0.github.io/Power-Outage-Research-Project). We have cleaned the data by fixing cell formatting, combining redundant columns, removing null values, imputing null values using median imputation, and converted all of the datatype to either `str`, `int64`, or `float64`. The code for cleaning our data was also used from our code for Project 3, while additionally removing columns we would not know at the time of prediction and encoding the `CAUSE.CATEGORY` with values of either 1 (If the cause is severe weather) and 0 (If the cause is not severe weather). Here are the first few rows of the cleaned dataset:
 
+<div style="overflow-x: auto;">
+
 | OBS | YEAR | MONTH | U.S._STATE | POSTAL.CODE | NERC.REGION | CLIMATE.REGION | ANOMALY.LEVEL | CLIMATE.CATEGORY | CAUSE.CATEGORY | ... | POPPCT_UC | POPDEN_URBAN | POPDEN_UC | POPDEN_RURAL | AREAPCT_URBAN | AREAPCT_UC | PCT_LAND | PCT_WATER_TOT | PCT_WATER_INLAND | OUTAGE.START |
 |-----|------|-------|------------|-------------|-------------|-----------------|---------------|-------------------|-----------------|-----|-----------|--------------|-----------|--------------|---------------|------------|----------|---------------|------------------|--------------|
 | 0   | 2011 | 7     | Minnesota  | MN          | MRO         | East North Central | -0.3          | normal            | 1               | ... | 15.28     | 2279         | 1700.5    | 18.2         | 2.14          | 0.6        | 91.592666 | 8.407334      | 5.478743         | 2011-07-01 17:00:00 |
@@ -36,6 +38,7 @@ The data that we will be using will be sourced from Purdue University’s LASCI 
 | 3   | 2012 | 6     | Minnesota  | MN          | MRO         | East North Central | -0.1          | normal            | 1               | ... | 15.28     | 2279         | 1700.5    | 18.2         | 2.14          | 0.6        | 91.592666 | 8.407334      | 5.478743         | 2012-06-19 04:30:00 |
 | 4   | 2015 | 7     | Minnesota  | MN          | MRO         | East North Central | 1.2           | warm              | 1               | ... | 15.28     | 2279         | 1700.5    | 18.2         | 2.14          | 0.6        | 91.592666 | 8.407334      | 5.478743         | 2015-07-18 02:00:00 |
 
+</div>
 
 
 ## Baseline Model
