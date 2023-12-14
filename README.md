@@ -90,17 +90,17 @@ To tune hyperparameters, we began by just messing around with numbers in differe
 We then went on to use a GridSearchCV to try and fit the model, resulting in an accuracy of 0.87 with a depth of 24 and a number of estimators of 200. These hyperparameters didn't make sense in terms of what we had tested. We figured that the smaller training sets, though covering all possibilities and averaging, led to different accuracies. Therefore, we then implemented a loop that manually tested hyperparameters -- depth between 2 and 30, and number of estimators between 100 and 1000. This resulted in a greater accuracy, as we'll discuss below.
 
 Our final parameters:
-1. ***Max Depth***: 10
-2. ***n_estimators***: 900
+1. ***Max Depth***: 12
+2. ***n_estimators***: 500
 
 ### Analysis
 
 Model Statistics:
-1. Accuracy: 0.8937
+1. Accuracy: 0.8864
 2. Precision: 0.90
-3. Recall: 0.84
+3. Recall: 0.85
 
-We consider this model to be significantly more useful than our base model, with this model being 22% more accurate than our base (relative to the base rate). Being able to predict with 89% accuracy could give people relative confidence as to the cause of the outage and allow them to react accordingly. Though it's not 100%, we do think that on occassion, severe weather outages and intentional attacks for example could have similar effects in similar times/locations, leading to this 11% gap. However, we were impressed with the improvement over our base model.
+We consider this model to be significantly more useful than our base model, with this model being 22% more accurate than our base (relative to the base rate). Being able to predict with ~89% accuracy could give people relative confidence as to the cause of the outage and allow them to react accordingly. Though it's not 100%, we do think that on occassion, severe weather outages and intentional attacks for example could have similar effects in similar times/locations, leading to this 11% gap. However, we were impressed with the improvement over our base model.
 
 ## Accuracy Analysis
 
