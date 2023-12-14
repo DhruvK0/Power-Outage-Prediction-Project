@@ -114,4 +114,32 @@ As we can see with our improved model, we have increased the amount of True Posi
 
 ## Accuracy Analysis
 
-To do our fairness assessment, we will categorize our dataset into two groups: major power outages that affected less than 65,000 people and major power outages that affected more than 65,000 people. For this analysis we will classify power outages affecting more than 65,000 as a severe power outage. For our analysis our primary metric will be accuracy. Our proposed null hypothesis is that our model's accuracy for determining a severe outage is roughly equivalent to an outage that is not severe. Our proposed alternative hypothesis is that our model is unfair, in that it has a higher accuracy for outages that are not severe than those that are classified as severe based on the amount of people affected. The test statistic we have chosen will be the difference in accuracy between severe and non-sever power outages, with a significance level of 0.01. For this analysis, we ran a permutation test 1,000 times and obtained a p-value of 0.367, which is outside of our significance level. This p-value leads us to fail in rejecting the null hypothesis, indicating that our null hypothesis might be true: that the model does not have a higher accuracy for power outages that affect less than 75,000 people than power outages that affect more than 75,000 power outages, and could be fair. However we cannot assert with certaintly that our model is fair as the permutation tests are created through random choice. Because of this we advise to conduct further testing with more data and permutations to determine whether or not the model is "truly fair".
+### Does the model perform worse for outages affecting more than 65,000 people than it does for outages affecting less than 65,000 people
+
+### Groups
+
+To do our fairness assessment, we will categorize our dataset into two groups: 
+**Group X**: major power outages that affected less than 65,000 people
+**Group Y**: major power outages that affected more than 65,000 people
+
+For this analysis we will classify power outages affecting more than 65,000 as a severe power outage.
+
+### Test Statistic
+
+The test statistic we have chosen will be the difference in accuracy between power outages affecting less than 65,000 people and accuracy for power outages affecting more than 65,000 people.
+
+### Null and Alternate Hypothesis
+
+**Null Hypothesis:** Our proposed null hypothesis is that our model's accuracy for determining a severe outage is roughly equivalent to an outage that is not severe.
+**Alternative Hypothesis:** Our proposed alternative hypothesis is that our model is unfair, in that it has a higher accuracy for outages that are not severe than those that are classified as severe based on the amount of people affected.
+
+### Significance Level and P-Value
+
+Our test will be conducted with a significance level of 0.01. For this analysis, we ran a permutation test 1,000 times and obtained a p-value of 0.367, which is outside of our significance level. 
+
+### Conclusion
+
+This p-value leads us to fail in rejecting the null hypothesis, indicating that our null hypothesis might be true: that the model does not have a higher accuracy for power outages that affect less than 65,000 people than power outages that affect more than 65,000 power outages, and could be fair. Below is a distribution of the 1,000 permutation tests and the observed test statistic. However we cannot assert with certaintly that our model is fair as the permutation tests are created through random choice. Because of this we advise to conduct further testing with more data and permutations to determine whether or not the model is "truly fair".
+
+<iframe src="outages.html" width=600 height=450 frameBorder=0></iframe>
+
