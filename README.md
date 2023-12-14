@@ -1,10 +1,37 @@
 # Power-Outage-Prediction-Project
+Project 5 DSC 80 Fall 2023
+
+Names: Dhruv Kanetkar and Justin Chou
+
+## Framing the Problem
 
 ### Identify the Problem: How can we predict whether or not a power outage was caused by severe weather?
-
 From a general perspective, the first part to finding a solution (both preventative and responsive) is identifying the cause of the problem. With that in mind, we wanted to find a way to identify whether or not a major power outage was caused by severe weather from data that we'd have at the time of the outage in hopes of restoring the outage faster with that information.
 
-This is a classification problem as we are just trying to classify the cause of a major outage. This is binary classification, as we're just looking to predict whether or not the cause of the outage was severe weather. Our response variable will thus be the cause of the outage, or CAUSE.CATEGORY (once modified to be 0 or 1 depending on whether the cause was severe weather), as our goal is to predict this variable. As noted earlier, we think this information would be helpful in the restoration of outages when the time comes. The metric we are using to evaluate our model will be the accuracy. From looking at the dataset, the proportion of outages caused by severe weather is very close to 0.5, meaning that the accuracy would not fail to capture the full picture of our model's effectiveness due to an imbalance in number of classifications. We'll also be looking at precision and recall to see whether we're producing more false positives or false negatives (or, essentially over or under-predicting the cause as severe weather). One important point to note is that since we would not have information on the following columns at the time of the outage: OUTAGE.RESTORATION, OUTAGE.DURATION, DEMAND.LOSS.MW, CAUSE.CATEGORY.DETAIL, we cannot use this for our prediction. However, we will be incorporating other features such as day and month of the outage as we would know that information at the time of a major power outage.
+> Justification
+Whether or not a power outage was caused by severe weather is essential to allocating proper resources and setting up according preventative measures. Severe weather in this case could include a hurricane for example, which would require countermeasures such as increased insulation, and running power lines underground. This would be different for a power outage not caused by severe weather, such equipment failure, would indicate a necessary upgrade to the system which would be more intensive.
+
+> Classification Problem and Response Variable
+This is a classification problem as we are just trying to classify the cause of a major outage. This is binary classification, as we're just looking to predict whether or not the cause of the outage was severe weather. Our response variable will thus be the cause of the outage, or CAUSE.CATEGORY (once modified to be 1 if the cause was "severe weather" or 0 if it was another cause), as our goal is to predict this variable. 
+
+> Evaluation Metric
+As noted earlier, we think this information would be helpful in the restoration of outages when the time comes. The metric we are using to evaluate our model will be the accuracy. From looking at the dataset, the proportion of outages caused by severe weather is very close to 0.5, meaning that the accuracy would not fail to capture the full picture of our model's effectiveness due to an imbalance in number of classifications. Since we do not have an imbalance in our data, using the F1-score would not be ideal. Additionally, we care just as much about the cases where the cause category is "severe weather" and when it is not, so accuracy is better for that reason as well over F1-score.
+
+> Known Info at "Time of Prediction" and Features
+One important point to note is that since we would not have information on the following columns at the time of the outage: `OUTAGE.RESTORATION`, `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, `CAUSE.CATEGORY.DETAIL`, we cannot use this for our prediction. However, we will be incorporating other features such as: `YEAR`, `CLIMATE.REGION`, `CLIMATE.CATEGORY`, `TOAL.CUSTOMERS`, `ANOMALY.LEVEL`, and `CUSTOMERS.AFFECTED`. These values can be used as we would know that information at the time of a major power outage.
+
+> Data Source and Cleaning
+The data that we will be using will be sourced from Purdue University’s LASCI Research Data. This is the same data used in our Project 3 which can be found here [here](https://dhruvk0.github.io/Power-Outage-Research-Project). We have cleaned the data by fixing cell formatting, combining redundant columns, removing null values, imputing null values using median imputation, and converted all of the datatype to either `str`, `int64`, or `float64`. The code for cleaning our data was also used from our code for Project 3, while additionally removing columns we would not know at the time of prediction and encoding the `CAUSE.CATEGORY` with values of either 1 (If the cause is severe weather) and 0 (If the cause is not severe weather). Here are the first few rows of the cleaned dataset:
+
+| OBS | YEAR | MONTH | U.S._STATE | POSTAL.CODE | NERC.REGION | CLIMATE.REGION | ANOMALY.LEVEL | CLIMATE.CATEGORY | CAUSE.CATEGORY | ... | POPPCT_UC | POPDEN_URBAN | POPDEN_UC | POPDEN_RURAL | AREAPCT_URBAN | AREAPCT_UC | PCT_LAND | PCT_WATER_TOT | PCT_WATER_INLAND | OUTAGE.START |
+|-----|------|-------|------------|-------------|-------------|-----------------|---------------|-------------------|-----------------|-----|-----------|--------------|-----------|--------------|---------------|------------|----------|---------------|------------------|--------------|
+| 0   | 2011 | 7     | Minnesota  | MN          | MRO         | East North Central | -0.3          | normal            | 1               | ... | 15.28     | 2279         | 1700.5    | 18.2         | 2.14          | 0.6        | 91.592666 | 8.407334      | 5.478743         | 2011-07-01 17:00:00 |
+| 1   | 2014 | 5     | Minnesota  | MN          | MRO         | East North Central | -0.1          | normal            | 0               | ... | 15.28     | 2279         | 1700.5    | 18.2         | 2.14          | 0.6        | 91.592666 | 8.407334      | 5.478743         | 2014-05-11 18:38:00 |
+| 2   | 2010 | 10    | Minnesota  | MN          | MRO         | East North Central | -1.5          | cold              | 1               | ... | 15.28     | 2279         | 1700.5    | 18.2         | 2.14          | 0.6        | 91.592666 | 8.407334      | 5.478743         | 2010-10-26 20:00:00 |
+| 3   | 2012 | 6     | Minnesota  | MN          | MRO         | East North Central | -0.1          | normal            | 1               | ... | 15.28     | 2279         | 1700.5    | 18.2         | 2.14          | 0.6        | 91.592666 | 8.407334      | 5.478743         | 2012-06-19 04:30:00 |
+| 4   | 2015 | 7     | Minnesota  | MN          | MRO         | East North Central | 1.2           | warm              | 1               | ... | 15.28     | 2279         | 1700.5    | 18.2         | 2.14          | 0.6        | 91.592666 | 8.407334      | 5.478743         | 2015-07-18 02:00:00 |
+
+
 
 ## Baseline Model
 
