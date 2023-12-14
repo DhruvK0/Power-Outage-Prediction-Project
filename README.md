@@ -56,7 +56,7 @@ Our encodings were done using a ColumnTransformer such that we would be able to 
 
 Model Statistics:
 1. Accuracy: 0.73
-2. Precision: 0.69
+2. Precision: 0.70
 3. Recall: 0.72
 
 We consider this model to be passable, but it definitely can be improved upon. The accuracy is 0.73, which is significantly better than that of a naive model which would always predict an outage was not caused by severe weather (and have an accuracy of around 0.51). However, being correct 73% of the time with no extreme tendency towards false positives or negatives (as shown by our precision and recall) would not make the model particularly useful on a practical basis (i.e. in the event of a major power outage). Therefore, we want to look into other features that can better our model.
