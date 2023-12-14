@@ -18,7 +18,7 @@ This is a classification problem as we are just trying to classify the cause of 
 
 > Evaluation Metric
 
-As noted earlier, we think this information would be helpful in the restoration of outages when the time comes. The metric we are using to evaluate our model will be the accuracy. From looking at the dataset, the proportion of outages caused by severe weather is very close to 0.5, meaning that the accuracy would not fail to capture the full picture of our model's effectiveness due to an imbalance in number of classifications. Since we do not have an imbalance in our data, using the F1-score would not be ideal. Additionally, we care just as much about the cases where the cause category is "severe weather" and when it is not, so accuracy is better for that reason as well over F1-score.
+As noted earlier, we think this information would be helpful in the restoration of outages when the time comes. The metric we are using to evaluate our model will be the accuracy. From looking at the dataset, the number of outages caused by severe weather is 759, whereas the number of outages not caused by severe weather is 766, meaning that the accuracy would not fail to capture the full picture of our model's effectiveness due to an imbalance in number of classifications. Since we do not have an imbalance in our data, using the F1-score would not be ideal. Additionally, we care just as much about the cases where the cause category is "severe weather" and when it is not, so accuracy is better for that reason as well over F1-score.
 
 > Known Info at "Time of Prediction" and Features
 
