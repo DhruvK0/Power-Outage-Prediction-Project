@@ -73,7 +73,7 @@ Our final model will be a random forest classifier. We believe that the tree vot
 
 ### Added Features
 
-We ended up removing year our feature set, as upon further thinking, we decided that the changes in climate could be better captured by some of the features we included in our final model. Here are those features:
+We ended up removing year our feature set, as upon further thinking, we decided that the changes in climate could be better captured by some of the features we included in our final model. However, we did leave in `CLIMATE.REGION` as encoded. Here are those features:
 
 1. `CLIMATE.CATEGORY` -- We added climate category because this represents the climate episodes by year in each region. This means it provides context as to the climate relative to both time and location at the same time -- a good indicator for our model. This would allow us to capture what we were attempting to capture with the `YEAR` category. Because climate is the "long-term pattern of weather" (via National Geographic), we assumed that certain climates would lead to more severe weather leading to outages. This is a categorical, nominal variable (no inherent order), so we ***one-hot encoded*** this column.
 2. `ANOMALY.LEVEL` -- This variable is similar to `CLIMATE.CATEGORY`, as it represents the climate episdes relative to both time and location -- this time, by season. This would provide a bit more granularity for understanding the climate, which we ultimately decided would improve the model. Because this variable is quantitative, we applied a ***standard scaler*** to this column.
