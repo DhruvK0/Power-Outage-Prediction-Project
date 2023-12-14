@@ -82,9 +82,9 @@ We ended up removing year our feature set, as upon further thinking, we decided 
 
 ### Methods: Testing Models
 
-1. ***Decision Tree Classifier*** -- We tried this model with the expectation that it would be slightly worse than the random forest classifier. Its accuracy was 0.87.
+1. ***Decision Tree Classifier*** -- We tried this model with the expectation that it would be slightly worse than the random forest classifier. Its accuracy was 0.85.
 2. ***SVC*** -- We tried this model knowing that it tends to be less effective than the decision tree or the random forest classifier. Its accuracy was 0.78.
-3. ***Random Forest Classifier*** -- As noted above, a random forest classifier is often a stronger model than the decision tree. We found this in the performance, leading us to select that.
+3. ***Random Forest Classifier*** -- As noted above, a random forest classifier is often a stronger model than the decision tree. Our first model yielded an accuracy of 0.87, so we decided to select this model to optimize with hyperparameters.
 
 ### Tuning Hyperparameters
 
