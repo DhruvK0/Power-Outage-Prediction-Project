@@ -61,6 +61,12 @@ Model Statistics:
 
 We consider this model to be passable, but it definitely can be improved upon. The accuracy is 0.73, which is significantly better than that of a naive model which would always predict an outage was not caused by severe weather (and have an accuracy of around 0.51). However, being correct 73% of the time with no extreme tendency towards false positives or negatives (as shown by our precision and recall) would not make the model particularly useful on a practical basis (i.e. in the event of a major power outage). Therefore, we want to look into other features that can better our model.
 
+![image](base_conf.png)
+
+The confusion matrix above shows that there are 181 True Positives (TP), 152 True Negatives (TN), 65 False Positives (FP), and 60 False Negatives (FN). This breakdown further gives us information on how to improve our model, as the precision and recall are still very low.
+
+
+
 ## Final Model
 
 Our final model will be a random forest classifier. We believe that the tree voting method will improve the steps in the decision tree, leading to a stronger model overall.
