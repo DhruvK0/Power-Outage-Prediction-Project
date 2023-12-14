@@ -5,7 +5,7 @@ Names: Dhruv Kanetkar and Justin Chou
 
 ## Framing the Problem
 
-### Identify the Problem: How can we predict whether or not a power outage was caused by severe weather?
+### Identify the Problem: Can we predict whether or not a power outage was caused by severe weather?
 From a general perspective, the first part to finding a solution (both preventative and responsive) is identifying the cause of the problem. With that in mind, we wanted to find a way to identify whether or not a major power outage was caused by severe weather from data that we'd have at the time of the outage in hopes of restoring the outage faster with that information.
 
 > Justification
@@ -14,7 +14,7 @@ Whether or not a power outage was caused by severe weather is essential to alloc
 
 > Classification Problem and Response Variable
 
-This is a classification problem as we are just trying to classify the cause of a major outage. This is binary classification, as we're just looking to predict whether or not the cause of the outage was severe weather. Our response variable will thus be the cause of the outage, or CAUSE.CATEGORY (once modified to be 1 if the cause was "severe weather" or 0 if it was another cause), as our goal is to predict this variable. 
+This is a classification problem as we are just trying to classify the cause of a major outage. This is binary classification, as we're just looking to predict whether or not the cause of the outage was severe weather. Our response variable will thus be the cause of the outage, or `CAUSE.CATEGORY` (once modified to be 1 if the cause was "severe weather" or 0 if it was another cause), as our goal is to predict this variable. 
 
 > Evaluation Metric
 
