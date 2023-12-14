@@ -119,7 +119,9 @@ As we can see with our improved model, we have increased the amount of True Posi
 ### Groups
 
 To do our fairness assessment, we will categorize our dataset into two groups: 
+
 **Group X**: major power outages that affected less than 65,000 people
+
 **Group Y**: major power outages that affected more than 65,000 people
 
 For this analysis we will classify power outages affecting more than 65,000 as a severe power outage.
@@ -131,6 +133,7 @@ The test statistic we have chosen will be the difference in accuracy between pow
 ### Null and Alternate Hypothesis
 
 **Null Hypothesis:** Our proposed null hypothesis is that our model's accuracy for determining a severe outage is roughly equivalent to an outage that is not severe.
+
 **Alternative Hypothesis:** Our proposed alternative hypothesis is that our model is unfair, in that it has a higher accuracy for outages that are not severe than those that are classified as severe based on the amount of people affected.
 
 ### Significance Level and P-Value
